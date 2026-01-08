@@ -37,3 +37,21 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Maven
+target/
+
+# Allure
+allure-results/
+.allure/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Logs and temp files
+*.log
+*.tmp
+*.class

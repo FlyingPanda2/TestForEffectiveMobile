@@ -4,7 +4,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import pages.LoginPage;
 import pages.ProductsPage;
-import properties.BaseTest;
+import utils.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LoginTest extends BaseTest {
 
     @Test
-    @DisplayName("Успешный вход: standard_user / secret_sauce")
+    @DisplayName("Успешный логин: standard_user / secret_sauce")
     void testSuccessfulLogin() {
         new LoginPage()
                 .login("standard_user", "secret_sauce");
@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Вход с неправильным паролем")
+    @DisplayName("Логин с неверным паролем")
     void testLoginWithWrongPassword() {
         LoginPage loginPage = new LoginPage()
                 .login("standard_user", "wrong_password");
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Вход заблокированным пользователем: locked_out_user")
+    @DisplayName("Логин заблокированного пользователя (locked_out_user)")
     void testLockedOutUser() {
         LoginPage loginPage = new LoginPage()
                 .login("locked_out_user", "secret_sauce");
@@ -43,7 +43,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Вход с пустыми полями")
+    @DisplayName("Логин с пустыми полями")
     void testEmptyCredentials() {
         LoginPage loginPage = new LoginPage()
                 .login("", "");
@@ -54,7 +54,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Вход performance_glitch_user (с задержкой)")
+    @DisplayName("Логин с пользователем performance_glitch_user")
     @Description("Проверяет, что даже при задержках страница загружается корректно")
     void testPerformanceGlitchUser() {
         new LoginPage()
